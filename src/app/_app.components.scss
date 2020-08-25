@@ -1,0 +1,9 @@
+@mixin screen-lg {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+* {
+    outline: none !important;
+}

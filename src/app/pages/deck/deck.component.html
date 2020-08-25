@@ -1,6 +1,31 @@
-<div class="deck-container">
-    <div class="card-wrapper" *ngFor="let card of deck.cards | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-        <app-card [_cardInfo]="card"></app-card>
+<div class="deck-page">
+    <div class="deck-container" *ngIf="screenInfo?.type == 1">
+        <div class="card-grid">
+            <div class="card-wrapper" [routerLink]="['/detalhes', card.id, card.name]" *ngFor="let card of deck?.cards | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <app-card [_cardInfo]="card"></app-card>
+            </div>
+        </div>
+
+
+        <div class="w-100 d-flex justify-content-center align-items-center mt-3">
+            <ngb-pagination class="mx-auto" [(page)]="page" [pageSize]="pageSize" [collectionSize]="deck.cards.length"></ngb-pagination>
+        </div>
     </div>
-    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="deck.cards.length"></ngb-pagination>
+
+    <div class="deck-carousel" *ngIf="screenInfo?.type == 0">
+        <owl-carousel-o [options]="customOptions">
+
+            <ng-container *ngFor="let card of deck?.cards; let i = index">
+                <ng-template carouselSlide [id]="card.id">
+                    <app-card [routerLink]="['/detalhes', card.id, card.name]" [_cardInfo]="card"></app-card>
+                    <div class="text-center">
+                        Item {{i + 1 }} de {{deck?.cards.length}}
+                    </div>
+
+                </ng-template>
+            </ng-container>
+
+        </owl-carousel-o>
+
+    </div>
 </div>

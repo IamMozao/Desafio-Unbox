@@ -7,7 +7,7 @@ import { CardDetailsComponent } from './pages/card-details/card-details.componen
 
 const routes: Routes = [
   { path: '', component: DeckComponent, resolve: { deck: CardsResolver } },
-  { path: 'detalhes', component: CardDetailsComponent }
+  { path: 'detalhes/:id/:name', component: CardDetailsComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,23 @@
+@import '../../../styles.scss';
+
+.header {
+    background-color: #ffcb05;
+    border-bottom: 10px solid #3466ac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+
+    img {
+        width: 17vw;
+        transform: translateY(15px);
+    }
+
+    @include screen-lg {
+        img {
+            width: 4vw;
+            transform: translateY(25px);
+        }
+
+    }
+}

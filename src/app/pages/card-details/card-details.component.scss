@@ -1,0 +1,87 @@
+@import '../../../styles.scss';
+
+.breadcrumbs {
+    width: 80%;
+    margin: 1rem auto 0;
+
+    span {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    small {
+        margin: 0 0.3rem;
+    }
+
+}
+
+.card-details {
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin: 2rem auto;
+
+    .name {
+        font-weight: 900;
+        font-size: 1.6em;
+        margin: 0.8rem 0px 0;
+        font-family: 'Carter One',
+            cursive;
+    }
+
+    .image {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .section-title {
+        h5 {
+            font-weight: 700;
+            color: #484848;
+            margin: 0.5rem 0;
+        }
+
+        span {
+            margin-left: 5px;
+        }
+    }
+
+    .types {
+        color: #8a8a8a;
+    }
+
+    @include screen-lg {
+        flex-flow: row;
+        justify-content: center;
+
+        .image {
+            flex: 0 0 auto;
+            padding-right: 2rem;
+            width: unset;
+
+            img {
+                width: 500px;
+            }
+        }
+
+        .info {
+            flex: 1 1 auto;
+        }
+    }
+
+}
+
+.attacks {
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    b {
+        color: #244285;
+    }
+}

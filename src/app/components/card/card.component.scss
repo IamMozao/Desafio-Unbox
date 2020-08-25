@@ -1,0 +1,20 @@
+.poke-card {
+    .name {
+        font-family: 'Carter One',
+            cursive;
+
+        h4 {
+            margin-bottom: 0;
+        }
+    }
+
+    .types {
+        margin: 0 0 0.6rem;
+        color: #6b6b6b;
+        height: 25px;
+    }
+
+    .id {
+        text-align: right;
+    }
+}

@@ -23,4 +23,22 @@ export class CardsService {
 
   }
 
+  getPokemonCardById(id) {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+
+    return axios.get(`https://api.pokemontcg.io/v1/cards/${id}`)
+      .then((response) => {
+        console.log(response);
+
+        return response.data.card
+
+      }).catch(error => {
+        console.log(error);
+
+      })
+  }
+
 }

@@ -1,1 +1,78 @@
-<p>card-details works!</p>
+<div class="breadcrumbs">
+    <span [routerLink]="['/']"> Home </span>
+    <small> > </small>
+    <span> Detalhes {{cardInfo?.name}} </span>
+</div>
+
+<div class="card-details">
+    <div class="image">
+        <img [src]="cardInfo?.imageUrlHiRes" [alt]="cardInfo?.name">
+    </div>
+    <div class="info">
+        <div class="name" [style.color]="cardInfo?.color"> {{cardInfo?.name}} </div>
+        <div class="types">
+            <span *ngFor="let type of cardInfo?.types; let first = first">
+                {{type}} <span *ngIf="!first">,</span>
+            </span>
+        </div>
+        <div class="resistances section-title">
+            <h5>Resistências</h5>
+            <span *ngFor="let resistance of cardInfo?.resistances; let first = first">
+                {{resistance}} <span *ngIf="!first">,</span>
+            </span>
+            <span *ngIf="!cardInfo?.resistances">
+                N/A
+            </span>
+        </div>
+        <div class="weaknesses section-title">
+            <h5>Fraquezas</h5>
+            <span *ngFor="let weakness of cardInfo?.weaknesses; let first = first">
+                {{weakness.type}} {{weakness.value}} <span *ngIf="!first">,</span>
+            </span>
+        </div>
+        <div class="attacks section-title">
+            <h5>Ataques</h5>
+            <span *ngFor="let attacks of cardInfo?.attacks; let first = first" (click)="openModal(attackModal)">
+                <u> {{attacks.name}} <span *ngIf="!first">,</span></u>
+
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #attackModal let-modal>
+    <div class="default-modal">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Ataques de <b [style.color]="cardInfo?.color">{{cardInfo?.name}}</b> </h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+                &times;
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="attacks">
+                <ul>
+                    <li *ngFor="let attack of cardInfo?.attacks">
+                        <p>
+                            <b>Attack:</b> {{attack.name}}
+                        </p>
+                        <p>
+                            <b>Cost:</b> {{attack.cost}}
+                        </p>
+                        <p>
+                            <b>Damage:</b> {{attack.damage}}
+                        </p>
+                        <p>
+                            <b>Description:</b> {{attack.text}}
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+        </div>
+    </div>
+
+</ng-template>
