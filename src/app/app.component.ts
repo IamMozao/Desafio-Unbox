@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'unbox-teste';
+
+  onActivate(event) {
+    console.log(event);
+
+  }
 }
+
+

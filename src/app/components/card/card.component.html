@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="name">
+        <h4>{{cardInfo.name}} </h4>
+    </div>
+    <div class="image">
+        <img [src]="cardInfo.imageUrl" [alt]="cardInfo.name">
+    </div>
+    <div class="id">
+        <small>{{cardInfo.id}} </small>
+    </div>
+    <div class="types">
+        <span *ngFor="let type of cardInfo.types; let first = first">
+            {{type}} <span *ngIf="!first">,</span>
+        </span>
+    </div>
+</div>

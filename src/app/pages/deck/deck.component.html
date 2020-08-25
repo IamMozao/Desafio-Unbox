@@ -1,0 +1,6 @@
+<div class="deck-container">
+    <div class="card-wrapper" *ngFor="let card of deck.cards | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <app-card [_cardInfo]="card"></app-card>
+    </div>
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="deck.cards.length"></ngb-pagination>
+</div>
